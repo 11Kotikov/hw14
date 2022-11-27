@@ -1,4 +1,5 @@
 ﻿/* не работает что-то))
+//...наверно не стоит такие комментарии оставлять в коммерческих кодах
 void HelloSensei()
 {
     var time = DateTime.Now;
@@ -71,20 +72,23 @@ HelloSensei();
 //     {
 //         for (int i = 0; i < array.GetLength(0); i++)
 //         {
-//             for (int j = 0; j < array.GetLength(1)-1; j++)
+//             for (int j = 0; j < array.GetLength(1) - 1; j++)
 //             {
 //                 if (array[i, j] < array[i, j + 1])
 //                 {
 //                     int temp = array[i, j];
 //                     array[i, j] = array[i, j + 1];
-//                     array[i, j+1] = temp;
+//                     array[i, j + 1] = temp;
 //                 }
 //             }
 //         }
 //         count++;
 //     }
+//     System.Console.WriteLine("\nugh...what a gross...give me a sec");
+//     Thread.Sleep(1000);
+//     System.Console.WriteLine("Ur new beautiful sorted array is:");
+//     Thread.Sleep(1000);
 //     return array;
-
 // }
 
 // int[,] matrix = Create2dArray();
@@ -146,12 +150,13 @@ HelloSensei();
 //             minRow = i;
 //         }
 //     }
-//     System.Console.Write($"The row which has the min sum of the elements is [{minRow+1}] ");;
+//     System.Console.Write($"And the row which has the min sum of the elements is \"{minRow+1}\" ");;
 //     return sum;
 // }
 
 
 // int[,] matrix = Create2dArray();
+// System.Console.WriteLine("Your array is:");
 // Show2dArray(matrix);
 // FindRowSum(matrix);
 
@@ -162,87 +167,87 @@ HelloSensei();
 // 11 16 15 06
 // 10 09 08 07
 
-// int[,] CreateHelix2dArray()
-// {
-// int rows = 4;
-// int cols = 4;
-// int[,] createdArray = new int[rows, cols];
-// // о способе заполнения периметра я догадался, а вот внутреннее наполнение пришлось погуглить, нашёл аналогичный на java:(
-// // код, по сути, на 70% не мой...
-// int fillNumber = 1;
-// for (int j = 0; j < createdArray.GetLength(1); j++)
-// {
-//     createdArray[0, j] = fillNumber;
-//     fillNumber++;
-// }
-// for (int i = 1; i < createdArray.GetLength(0); i++)
-// {
-//     createdArray[i, rows - 1] = fillNumber;
-//     fillNumber++;
-// }
-// for (int j = cols - 2; j >= 0; j--)
-// {
-//     createdArray[cols - 1, j] = fillNumber;
-//     fillNumber++;
-// }
-// for (int i = rows - 2; i > 0; i--)
-// {
-//     createdArray[i, 0] = fillNumber;
-//     fillNumber++;
-// }
+int[,] CreateHelix2dArray()
+{
+int rows = 4;
+int cols = 4;
+int[,] createdArray = new int[rows, cols];
+// о способе заполнения периметра я догадался, а вот внутреннее наполнение пришлось погуглить, нашёл аналогичный на java:(
+// код, по сути, на 70% не мой...(было сложно)
+int fillNumber = 1;
+for (int j = 0; j < createdArray.GetLength(1); j++)
+{
+    createdArray[0, j] = fillNumber;
+    fillNumber++;
+}
+for (int i = 1; i < createdArray.GetLength(0); i++)
+{
+    createdArray[i, rows - 1] = fillNumber;
+    fillNumber++;
+}
+for (int j = cols - 2; j >= 0; j--)
+{
+    createdArray[cols - 1, j] = fillNumber;
+    fillNumber++;
+}
+for (int i = rows - 2; i > 0; i--)
+{
+    createdArray[i, 0] = fillNumber;
+    fillNumber++;
+}
 
-// int x = 1;
-// int y = 1;
+int x = 1;
+int y = 1;
 
-// while (fillNumber < rows * cols)
-// {
-//     while (createdArray[x, y + 1] == 0)
-//     {
-//         createdArray[x, y] = fillNumber;
-//         fillNumber++;
-//         y++;
-//     }
-//     while (createdArray[x + 1, y] == 0)
-//     {
-//         createdArray[x, y] = fillNumber;
-//         fillNumber++;
-//         x++;
-//     }
-//     while (createdArray[x, y - 1] == 0)
-//     {
-//         createdArray[x, y] = fillNumber;
-//         fillNumber++;
-//         y--;
-//     }
-//     while (createdArray[x - 1,y] == 0)
-//     {
-//         createdArray[x,y] = fillNumber;
-//         fillNumber++;
-//         x--;
-//     }
-// }
+while (fillNumber < rows * cols)
+{
+    while (createdArray[x, y + 1] == 0)
+    {
+        createdArray[x, y] = fillNumber;
+        fillNumber++;
+        y++;
+    }
+    while (createdArray[x + 1, y] == 0)
+    {
+        createdArray[x, y] = fillNumber;
+        fillNumber++;
+        x++;
+    }
+    while (createdArray[x, y - 1] == 0)
+    {
+        createdArray[x, y] = fillNumber;
+        fillNumber++;
+        y--;
+    }
+    while (createdArray[x - 1,y] == 0)
+    {
+        createdArray[x,y] = fillNumber;
+        fillNumber++;
+        x--;
+    }
+}
 
-// for (int i = 0; i < createdArray.GetLength(0); i++) {
-//             for (int j = 0; j < createdArray.GetLength(1); j++) {
-//                 if (createdArray[i,j] == 0) {
-//                     createdArray[i,j] = fillNumber;
-//                 }
-//             }
-//         }
-// return createdArray;
-// }
+for (int i = 0; i < createdArray.GetLength(0); i++) {
+            for (int j = 0; j < createdArray.GetLength(1); j++) {
+                if (createdArray[i,j] == 0) {
+                    createdArray[i,j] = fillNumber;
+                }
+            }
+        }
+return createdArray;
+}
 
-// void Show2dArray(int[,] array)
-// {
-//     for (int i = 0; i < array.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < array.GetLength(1); j++)
-//         {
-//             System.Console.Write(array[i, j] + " ");
-//         }
-//         System.Console.WriteLine();
-//     }
-// }
+void Show2dArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            System.Console.Write(array[i, j] + " ");
+        }
+        System.Console.WriteLine();
+    }
+}
 
-// int[,] matrix = CreateHelix2dArray();
-// Show2dArray(matrix);
+int[,] matrix = CreateHelix2dArray();
+Show2dArray(matrix);
